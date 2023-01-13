@@ -4,6 +4,7 @@ const {
     getUsers,
     updateUser,
     deleteUser,
+    all
 } = require("./../DAL/user.DAL");
 
 const { httpError } = require('../classes/httpError.class');
@@ -66,3 +67,5 @@ exports.removeUser = async (req, res, next) => {
         next(error)
     }
 };
+
+
