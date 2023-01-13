@@ -34,7 +34,7 @@ exports.getRequestsList = async (req, res, next) => {
     try {
         const requests = await getRequests(req, res);
         if (requests) {
-            res.status(200).json({ requests });
+            res.render('listTemplate.ejs', { requests: requests })
         }
     } catch (error) {
         next(error)

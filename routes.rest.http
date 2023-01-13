@@ -1,0 +1,85 @@
+
+### LOGIN & REGISTER
+
+#1- login -> DONE
+POST http://localhost:4000/auth/login
+Content-Type: application/json
+
+{
+  "email": "beni@gmail.com",
+  "password": "1122255"
+}
+
+###
+#2 - register (add new user) -> DONE
+POST http://localhost:4000/auth/register
+Content-Type: application/json
+
+{
+  "full_name": "beni levy",
+  "email": "aaa@gmail.com",
+  "password": "222",
+  "address": "Almog 23 Ramat-Efal",
+  "skills": "electricity",
+  "phone_number": "0546378599"
+}
+
+
+### USERS
+
+#3 - get users -> DONE (using verify token as middle-ware)
+GET http://localhost:4000/user
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlmNDM0NjRmYmQ2MzFlNzE0Mzg2YmUiLCJpYXQiOjE2NzE5MDIxNTUsImV4cCI6MTY3MTkwMzA1NX0.ySXwJWBE8mRJxShpca2mVdgRO6nsEr01IcUVFzso9GY
+###
+#4 - get user by email -> DONE
+GET http://localhost:4000/user/email/avi@gmail.com
+
+###
+#5 - get user by id -> DONE
+GET http://localhost:4000/user/id/639f43464fbd631e714386be
+
+###
+#6- edit user -> DONE
+PUT http://localhost:4000/user/639f43464fbd631e714386be
+Content-Type: application/json
+
+{
+   "skills": "hi hi hi"
+}
+
+
+### REQUESTS
+
+#7 - get requests -> DONE
+GET http://localhost:4000/request
+
+###
+#8 - get request by id -> DONE
+GET http://localhost:4000/request/63a0843c0a15b8f6bf20acd2
+
+###
+#9 - add new request -> DONE
+POST http://localhost:4000/request
+Content-Type: application/json
+
+{
+  "requester_id": "639f43464fbd631e714386be",
+  "request_type": "hi",
+  "notes": "date",
+  "requester_email": "ofir@gmail.com"
+}
+
+###
+#10 - remove request -> DONE
+DELETE http://localhost:4000/request/63a07f40a365b3344798191c
+
+###
+#11 - edit request -> DONE
+PUT http://localhost:4000/request/63a7321c591283277492ca84
+Content-Type: application/json
+
+{
+  "request_type": "changed!",
+  "notes": "changed"
+}
+

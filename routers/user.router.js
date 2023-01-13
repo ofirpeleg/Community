@@ -7,7 +7,8 @@ const {
     getUserWithId,
     getUserWithEmail,
     removeUser,
-    changeUser
+    changeUser,
+
 } = require("../controllers/user.controller");
 
 //get all requests
@@ -24,5 +25,6 @@ userRouter.delete("/:id", removeUser);
 
 //post request
 userRouter.put("/:id", changeUser);
+
 
 module.exports = { userRouter };
