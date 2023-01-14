@@ -12,19 +12,33 @@
     justify-content: center;
 }
 
-.list-group{ 
+.list-group{
     margin-top: 50px;
 }
 
-/* .list-group-item list-group-item-action flex-column align-items-start"> */
-
-
-
-
+/* for list
 .btn {
-    margin-left: 1000px;
+    margin-left: 400px;
+}
+
+ */
+
+/* for card */
+.btn {
+    margin-top: 20px;
+}
+
+.row {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+}
 
 
+.card-img-top{
+    margin-top: 10px;
+    width:259px ;
+    height: 180px;
 }
 
 

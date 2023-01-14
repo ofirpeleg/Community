@@ -13,7 +13,7 @@ loginForm.addEventListener("submit", async (e) => {
             const data = await login(userInfo);
             if(data.message === 'success') {
                 console.log(data.jwtToken);
-                alert(`welcome ${data.user.foundUser.full_name}!`);
+                window.location.replace("/request");
             }
             else {
                 alert(data.message)
@@ -34,7 +34,7 @@ const login = async (userInfo) => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(userInfo),
-        //redirect: "follow",
     })
     return response.json();
 };
+

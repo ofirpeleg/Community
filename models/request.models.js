@@ -9,18 +9,27 @@ const requestSchema = new Schema({
         type: String,
         required: true,
     },
-    notes: {
+    description: {
         type: String,
         required: true,
     },
     requester_email: {
         type: String,
-        required: true,
     },
     date: {
         type: Date,
         required:true,
         default: new Date()
+    },
+    assignTo: {
+        type: String,
+        required: true,
+        default: 'none'
+    },
+    status: {
+        type: String,
+        required: true,
+        default: 'pending'
     }
 });
 

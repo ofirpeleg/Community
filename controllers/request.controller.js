@@ -11,7 +11,7 @@ const { httpError } = require('../classes/httpError.class');
 exports.addRequest = async (req, res, next) => {
     try {
         const newRequest= await postRequest(req, res);
-        res.status(200).json({ newRequest });
+        return newRequest;
     } catch (error) {
         next(error)
     }
@@ -33,8 +33,11 @@ exports.getRequestById = async (req, res, next) => {
 exports.getRequestsList = async (req, res, next) => {
     try {
         const requests = await getRequests(req, res);
+        //show only pending request --> waiting for connection
+        const filteredRequests = requests.filter(request => request.status ==='pending');
+        console.log()
         if (requests) {
-            res.render('listTemplate.ejs', { requests: requests })
+            res.render('listTemplate2.ejs', { requests: filteredRequests })
         }
     } catch (error) {
         next(error)

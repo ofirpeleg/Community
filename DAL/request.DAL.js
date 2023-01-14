@@ -3,10 +3,12 @@ const { httpError } = require('../classes/httpError.class');
 
 //add new request
 const postRequest = async (req,res) => {
-    const request = new Request({ ...req.body });
+    const request = new Request(req.body);
         const newRequest = await request.save();
         if (!newRequest) throw new httpError("Unable to add new Request" , 400);
-        return newRequest;
+        return res.status(200).json({
+            request: newRequest
+        });
 };
 
 //get all requests

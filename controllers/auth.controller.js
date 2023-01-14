@@ -40,7 +40,9 @@ const handleLogin = async (req, res, next) => {
             //create and assign token
             const token = jwt.sign({_id: foundUser._id}, process.env.ACCESS_TOKEN_SECRET , { expiresIn: '15m'});
             if (match) {
-                res.status(200).header('auth-token', token).json({
+                res.status(200).cookie("token", token, {
+                    httpOnly: true,
+                }).json({
                     message: 'success',
                     user: {
                         foundUser
@@ -81,5 +83,16 @@ const handleRegister = async (req, res, next) => {
             next(error)
         }
 };
+
+
+exports.getInfoFromToken = async (req,res,next) => {
+    const token = req.cookies.token;
+    try {
+        const  userId  = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+        res.status(200).json(userId);
+    } catch (error) {
+        next(error);
+    }
+}
 
 module.exports = { handleLogin , handleRegister };

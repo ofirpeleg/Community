@@ -26,23 +26,29 @@
                 <li class="breadcrumb-item active" aria-current="page">list of requests</li>
             </ol>
         </nav>
-        <div class="list-group d-inline-flex p-2">
-            <% for(let i=0;i<requests.length;i++) { %>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Requester email:<%=requests[i].requester_email%></h5>
-                </div>
-                <p class="mb-1">Date: <%=(requests[i].date).toLocaleDateString() +' '+ (requests[i].date).toLocaleTimeString()%></p>
-                <p class="mb-1">Type of request: <%=requests[i].request_type%></p>
-                <p class="mb-1">Description: <%=requests[i].description%></p>
-                <button type="button" class="btn btn-dark" data-toggle="button" aria-pressed="false"
-                        autocomplete="off" value="<%=requests[i]._id%>">
-                    Sign me up!
-                </button>
-            </a>
+        <div class="container mt-3">
+            <div class="row">
+                <% for(let i=0;i<requests.length;i++) { %>
+            <div class="card mb-4" style="width: 18rem;">
+                <div class="col-auto mb-3">
+                <img class="card-img-top" src="images/volunteer.png" aria-setsize="" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Requester email:<%=requests[i].requester_email%></h5>
+                    <p class="mb-1">Date: <%=(requests[i].date).toLocaleDateString() +' '+ (requests[i].date).toLocaleTimeString()%></p>
+                    <p class="mb-1">Type of request: <%=requests[i].request_type%></p>
+                    <p class="mb-1">Description: <%=requests[i].description%></p>
+                    <p class="mb-1">Status: <%=requests[i].status%></p>
+                    <button type="button" class="btn btn-dark" data-toggle="button" aria-pressed="false"
+                            autocomplete="off" value="<%=requests[i]._id%>">
+                        Sign me up!
+                    </button>
+            </div>
+        </div>
+            </div>
             <% } %>
         </div>
     </div>
+</div>
 </div>
 </body>
 
