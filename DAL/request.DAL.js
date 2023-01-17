@@ -35,19 +35,42 @@ const deleteRequest = async (req,res) => {
 };
 
 const updateRequest = async (req,res) => {
-
     const id = req.params.id;
-    const updatedRequest = await Request.findByIdAndUpdate({_id: id}, req.body);
-    if (!updatedRequest) throw new httpError("not Updated" , 400);
-    return updatedRequest;
-
+    //if apply for request ->
+    if(JSON.stringify(req.body) === '{}') {
+        const details = {
+            assignTo: req.userid._id,
+            status: 'active'
+        };
+        const updatedRequest = await Request.findByIdAndUpdate({_id: id}, details);
+        if (!updatedRequest) throw new httpError("not Updated" , 400);
+        return updatedRequest;
+    }
+    else {
+        const updatedRequest = await Request.findByIdAndUpdate({_id: id}, req.body);
+        if (!updatedRequest) throw new httpError("not Updated" , 400);
+        return updatedRequest;
+    }
 };
 
+/*
+const assignRequest = async (req,res) => {
+    const id = req.params.id;
+    const details = {
+        assignTo: req.userid._id,
+        status: 'active'
+    }
+    const updatedRequest = await Request.findByIdAndUpdate({_id: id}, { assignTo: req.userid._id,
+        status: 'active'});
+    if (!updatedRequest) throw new httpError("not Updated" , 400);
+    return updatedRequest;
+};
+*/
 
 module.exports = {
     getRequests,
     getRequest,
     postRequest,
     deleteRequest,
-    updateRequest
+    updateRequest,
 };

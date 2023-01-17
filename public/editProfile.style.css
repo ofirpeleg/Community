@@ -1,0 +1,31 @@
+header,
+
+main{
+    margin: 0 auto;
+    max-width: 600px;
+    width: 100%;
+    background: white;
+}
+
+form{
+    margin: 0 auto;
+    max-width: 570px;
+    width: 100%;
+    background: white;
+    padding-bottom: 20px;
+}
+
+
+#logo{
+    background-image: url("images/logo.png");
+    display: block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 230px;
+    height: 230px;
+}
+
+nav{
+    padding-bottom: 17px;
+}
+

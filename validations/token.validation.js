@@ -1,21 +1,20 @@
 const jwt = require('jsonwebtoken');
 const { httpError } = require('../classes/httpError.class');
 
-//assign token when logged in
-module.exports = function (req,res,next) {
 
-    const token = req.header('auth-token');
-    if(!token) throw new httpError('Access Denied' , 403);
+const tokenVerify = async (req, res, next) => {
 
-    try {
-        //token is the user id only
+        const token = req.cookies.token;
+        if (!token) { return res.redirect('/'); }
+
         const verified = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-        req.userid = verified._id;
-        console.log({verified});
+        req.userid = verified;
         next();
-    }
-    catch (error) {
-        next(error)
-    }
+
+};
+
+module.exports = {
+    tokenVerify
 }
+
 

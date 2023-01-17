@@ -5,7 +5,7 @@ const {
     getRequestById,
     getRequestsList,
     removeRequest,
-    changeRequest
+    changeRequest,
 } = require("../controllers/request.controller");
 
 //get all requests

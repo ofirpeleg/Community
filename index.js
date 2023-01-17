@@ -6,6 +6,7 @@ const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
 const ejs = require('ejs');
+const cookieParser = require('cookie-parser');
 const connectDB = require("./config/db.connection");
 
 const { userRouter }  = require('./routers/user.router');
@@ -13,7 +14,9 @@ const { requestRouter }  = require('./routers/request.router');
 const { authRouter }  = require('./routers/auth.router');
 
 const errorHandler  = require('./middleware/errorHandler.mw');
+const verifyToken = require('./validations/token.validation');
 const { morgan } = require("./middleware/accessLogger.mw");
+const {tokenVerify} = require("./validations/token.validation");
 const logPath = path.join(__dirname, "/log" ,"access.log");
 
 // Middlewares //
@@ -22,6 +25,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(cookieParser());
 
 app.set('view engine', 'ejs');
 //serve static files that do NOT need server-side processing (images,js,css..)
@@ -37,8 +41,9 @@ app.use(
     })
 );
 
+
 app.use("/auth" , authRouter)
-app.use("/request", requestRouter);
+app.use("/request", tokenVerify ,requestRouter);
 app.use("/user", userRouter);
 
 app.all('/', (req, res) => {

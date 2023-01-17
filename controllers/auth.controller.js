@@ -38,10 +38,11 @@ const handleLogin = async (req, res, next) => {
             const match = await bcrypt.compare(req.body.password, foundUser.password);
 
             //create and assign token
-            const token = jwt.sign({_id: foundUser._id}, process.env.ACCESS_TOKEN_SECRET , { expiresIn: '15m'});
+            const token = jwt.sign({_id: foundUser._id}, process.env.ACCESS_TOKEN_SECRET , { expiresIn: '30m'});
             if (match) {
                 res.status(200).cookie("token", token, {
                     httpOnly: true,
+
                 }).json({
                     message: 'success',
                     user: {
