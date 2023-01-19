@@ -15,7 +15,7 @@ const {
 userRouter.get("/", getAllUsers);
 
 //get request by id
-userRouter.get("/id/:id", getUserWithId);
+userRouter.get("/:id", getUserWithId);
 
 //get request by email
 userRouter.get("/email/:email", getUserWithEmail);

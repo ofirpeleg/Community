@@ -1,6 +1,5 @@
 let getOpportunityBtn;
 
-//need to be changed dynamically
 const assignOpportunity = async (requestId) => {
     const result = await fetch(`http://localhost:4000/request/${requestId}`,{
         method:'PUT',

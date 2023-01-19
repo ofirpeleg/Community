@@ -12,6 +12,7 @@ const connectDB = require("./config/db.connection");
 const { userRouter }  = require('./routers/user.router');
 const { requestRouter }  = require('./routers/request.router');
 const { authRouter }  = require('./routers/auth.router');
+const { uiRouter } = require('./routers/ui.roter');
 
 const errorHandler  = require('./middleware/errorHandler.mw');
 const verifyToken = require('./validations/token.validation');
@@ -42,9 +43,10 @@ app.use(
 );
 
 
-app.use("/auth" , authRouter)
+app.use("/auth", authRouter)
 app.use("/request", tokenVerify ,requestRouter);
 app.use("/user", userRouter);
+app.use("/dashboard", tokenVerify ,uiRouter);
 
 app.all('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/login.html'));

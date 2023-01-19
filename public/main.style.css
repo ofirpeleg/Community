@@ -1,13 +1,10 @@
-
-
 main{
     margin: 0 auto;
-    max-width: 600px;
     width: 100%;
-    background: white;
 }
 
-form {
+form{
+
     margin: 0 auto;
     margin-top: 70px;
     max-width: 570px;
@@ -16,11 +13,6 @@ form {
     text-decoration: none;
 }
 
-nav {
-    padding-bottom: 17px;
-}
-
-/*nav bar*/
 .navBen {
     background: rgb(88,109,215);
     background: radial-gradient(circle, rgba(88,109,215,1) 0%, rgba(207,246,255,0.30033263305322133) 100%);

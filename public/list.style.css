@@ -2,26 +2,10 @@
     text-decoration: none;
 }
 
-#logo{
-    background-image: url("images/logo.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 230px;
-    height: 230px;
-    display: flex;
-    justify-content: center;
-}
-
 .list-group{
     margin-top: 50px;
 }
 
-/* for list
-.btn {
-    margin-left: 400px;
-}
-
- */
 
 /* for card */
 .btn {
@@ -41,6 +25,20 @@
     height: 180px;
 }
 
+.container {
+
+    margin: 0 auto;
+    margin-top: 70px;
+    width: 80%;
+    padding-bottom: 20px;
+    text-decoration: none;
+}
+
+.navBen {
+    background: rgb(88,109,215);
+    background: radial-gradient(circle, rgba(88,109,215,1) 0%, rgba(207,246,255,0.30033263305322133) 100%);
+
+}
 
 
 

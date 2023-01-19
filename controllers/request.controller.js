@@ -30,13 +30,13 @@ exports.getRequestById = async (req, res, next) => {
 };
 
 
-exports.getRequestsList = async (req, res, next) => {
+exports.getRequests = async (req, res, next) => {
     try {
         const requests = await getRequests(req, res);
-        //show only pending request --> waiting for connection
-        const filteredRequests = requests.filter(request => request.status ==='pending');
         if (requests) {
-            res.render('listTemplate2.ejs', { requests: filteredRequests })
+            if (requests) {
+                res.status(200).json(requests);
+            }
         }
     } catch (error) {
         next(error)
