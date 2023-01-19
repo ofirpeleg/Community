@@ -13,7 +13,7 @@ loginForm.addEventListener("submit", async (e) => {
             const data = await login(userInfo);
             if(data.message === 'success') {
                 console.log(data.jwtToken);
-                window.location.replace("/request");
+                window.location.replace("/dashboard/list");
             }
             else {
                 alert(data.message)

@@ -3,7 +3,7 @@ const {
     getRequest,
     deleteRequest,
     postRequest,
-    updateRequest
+    updateRequest,
 } = require("../DAL/request.DAL");
 
 const { httpError } = require('../classes/httpError.class');
@@ -30,14 +30,13 @@ exports.getRequestById = async (req, res, next) => {
 };
 
 
-exports.getRequestsList = async (req, res, next) => {
+exports.getRequests = async (req, res, next) => {
     try {
         const requests = await getRequests(req, res);
-        //show only pending request --> waiting for connection
-        const filteredRequests = requests.filter(request => request.status ==='pending');
-        console.log()
         if (requests) {
-            res.render('listTemplate2.ejs', { requests: filteredRequests })
+            if (requests) {
+                res.status(200).json(requests);
+            }
         }
     } catch (error) {
         next(error)
@@ -63,14 +62,16 @@ exports.removeRequest = async (req, res, next) => {
 
 exports.changeRequest = async (req, res, next) => {
     try {
-        if(!req.body || !req.params.id) throw new httpError("Bad Request" , 400)
+        if(!req.params.id) throw new httpError("Bad Request" , 400);
         const request = await updateRequest(req, res);
         if (!request) {
             throw new httpError("not Found" , 404);
         }
-        res.status(201).json({ request });
+        res.status(200).json({ request });
     } catch (error) {
         next(error)
     }
 };
+
+
 

@@ -7,8 +7,9 @@ const { httpError } = require('../classes/httpError.class');
 
 //get user by id
 const getUserById= async (req, res) => {
-    const id = req.params.id;
-    const foundUser = await User.findOne({ _id: id });
+    //const id = req.params.id;
+    const userId = req.userid._id;
+    const foundUser = await User.findOne({ _id: userId });
     if (!foundUser) throw new httpError("Not exist" , 404);
     return foundUser;
 };

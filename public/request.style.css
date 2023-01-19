@@ -7,7 +7,7 @@ main{
     background: white;
 }
 
-form{
+form {
     margin: 0 auto;
     max-width: 570px;
     width: 100%;
@@ -17,7 +17,7 @@ form{
 
 
 #logo{
-    background-image: url("images/Community.png");
+    background-image: url("public/images/logo1.png");
     display: block;
     background-repeat: no-repeat;
     background-size: contain;

@@ -1,17 +1,18 @@
 const requestForm = document.getElementById("requestForm");
 const nameInput = document.getElementById("name");
-//const addressInput = document.getElementById("address");
+const addressInput = document.getElementById("address");
 const typeInput = document.getElementById("requestType");
 const descInput = document.getElementById("requestTextarea");
+
 
 requestForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const requestDetails = {
-        requester_id: 'someId',
-        name: requestForm.name.value,
+        address: requestForm.address.value,
         request_type: requestForm.requestType.value,
         description: requestForm.requestTextarea.value,
     };
+
     try {
         const data = await request(requestDetails);
         console.log(data);
@@ -19,7 +20,7 @@ requestForm.addEventListener("submit", async (e) => {
             alert('successfully added!');
         }
         else {
-
+            console.log('here');
         }
     } catch (error) {
         console.log(error);
@@ -36,3 +37,4 @@ const request = async (requestDetails) => {
     })
     return response.json();
 };
+

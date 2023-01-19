@@ -13,9 +13,11 @@ const requestSchema = new Schema({
         type: String,
         required: true,
     },
+    /*
     requester_email: {
         type: String,
     },
+     */
     date: {
         type: Date,
         required:true,
@@ -23,13 +25,14 @@ const requestSchema = new Schema({
     },
     assignTo: {
         type: String,
-        required: true,
         default: 'none'
     },
     status: {
         type: String,
-        required: true,
         default: 'pending'
+    },
+    name: {
+        type: String,
     }
 });
 

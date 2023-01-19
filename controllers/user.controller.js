@@ -25,7 +25,8 @@ exports.getUserWithId = async (req, res, next) => {
     try {
         const user = await getUserById(req, res);
         if (user) {
-            res.status(200).json({ user });
+            res.render('editUserTemplate.ejs', { user: user })
+            //res.status(200).json({ user });
         }
     } catch (error) {
         next(error)

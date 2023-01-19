@@ -12,19 +12,19 @@
 <body>
     <div class="formbold-main-wrapper">
         <div class="formbold-form-wrapper">
-                        <form action="" method="POST" id="loginForm">
-                            <div class="formbold-form-title">
-                                <h2 class="">Log In</h2>
+                    <div class="formbold-form-title">
+                        <a href="/images/logo1.png" id="logo"></a>
+                            <h2 id="Login">Log In</h2>
+                         </div>
+                        <form action="/request" method="POST" id="loginForm">
+                            <div class="formbold-mb-3">
+                                <!--<label for="email" class="formbold-form-label"> Email </label> -->
+                                <input type="email" name="email" id="email" class="formbold-form-input" required placeholder="Email"/>
                             </div>
 
                             <div class="formbold-mb-3">
-                                <label for="email" class="formbold-form-label"> Email </label>
-                                <input type="email" name="email" id="email" class="formbold-form-input" required/>
-                            </div>
-
-                            <div class="formbold-mb-3">
-                                <label for="password" class="formbold-form-label"> Password </label>
-                                <input type="password" name="password" id="password" class="formbold-form-input" required/>
+                                <!-- <label for="password" class="formbold-form-label"> Password </label> -->
+                                <input type="password" name="password" id="password" class="formbold-form-input" placeholder="Password" required/>
                             </div>
 
                             <div class="formbold-checkbox-wrapper">

@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const userRouter = new Router();
-const verify = require("../validations/token.validation");
+//const verify = require("../validations/token.validation");
 
 const {
     getAllUsers,
@@ -12,10 +12,10 @@ const {
 } = require("../controllers/user.controller");
 
 //get all requests
-userRouter.get("/", verify , getAllUsers);
+userRouter.get("/", getAllUsers);
 
 //get request by id
-userRouter.get("/id/:id", getUserWithId);
+userRouter.get("/:id", getUserWithId);
 
 //get request by email
 userRouter.get("/email/:email", getUserWithEmail);

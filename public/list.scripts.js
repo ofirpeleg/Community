@@ -1,20 +1,14 @@
 let getOpportunityBtn;
 
-//need to be changed dynamically
 const assignOpportunity = async (requestId) => {
-    const details = {
-        assignTo: 'a',
-        status:'active'
-    };
     const result = await fetch(`http://localhost:4000/request/${requestId}`,{
-        method:'put',
+        method:'PUT',
         headers:{
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(details)
     })
-    return result.json();
-}
+    return result;
+};
 
 
 const handleSign = async (e) => {
@@ -23,7 +17,9 @@ const handleSign = async (e) => {
     const requestId = button.value;
     console.log(requestId);
     const result = await assignOpportunity(requestId);
-    //alert(requestId.value);
+    if(result.status === 200) {
+        alert('successful request assigment');
+    }
 }
 
 getOpportunityBtn = document.getElementsByClassName('btn');

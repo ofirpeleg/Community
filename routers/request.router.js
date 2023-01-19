@@ -3,13 +3,13 @@ const requestRouter = new Router();
 const {
     addRequest,
     getRequestById,
-    getRequestsList,
+    getRequests,
     removeRequest,
-    changeRequest
+    changeRequest,
 } = require("../controllers/request.controller");
 
 //get all requests
-requestRouter.get("/", getRequestsList);
+requestRouter.get("/", getRequests);
 
 //get request by id
 requestRouter.get("/:id", getRequestById);
