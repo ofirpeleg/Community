@@ -6,7 +6,11 @@ const {
     getRequests,
     removeRequest,
     changeRequest,
+    toNotify,
+    updateMany
 } = require("../controllers/request.controller");
+
+requestRouter.get("/notify", toNotify);
 
 //get all requests
 requestRouter.get("/", getRequests);
@@ -21,6 +25,9 @@ requestRouter.delete("/:id", removeRequest);
 requestRouter.post("/", addRequest);
 
 //change request
-requestRouter.put("/:id", changeRequest)
+requestRouter.put("/update-many", updateMany);
+
+//change request
+requestRouter.put("/:id", changeRequest);
 
 module.exports = { requestRouter };

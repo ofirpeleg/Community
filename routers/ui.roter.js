@@ -1,14 +1,23 @@
 const { Router } = require('express');
 const uiRouter = new Router();
-const path = require("path");
 
 const {
     getRequestsList,
-    editProfile
+    editProfile,
+    editRequest,
+    addNewRequest,
+    myRequestsList
 } = require("../controllers/ui.controller");
 
-uiRouter.get("/edit", editProfile);
+uiRouter.get("/edit-profile", editProfile);
+
+uiRouter.get("/edit-request/:id", editRequest);
 
 uiRouter.get("/list", getRequestsList);
+
+uiRouter.get("/request", addNewRequest);
+
+uiRouter.get("/my-requests", myRequestsList);
+
 
 module.exports =  { uiRouter };

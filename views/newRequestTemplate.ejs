@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-            crossorigin="anonymous"></script>
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
-    <link rel="stylesheet" href="/list/list.style.css">
-    <title>List</title>
+    <link rel="stylesheet" href="/request/request.style.css">
+    <title>New Request</title>
 </head>
 <body>
 <nav class="navbar navbar-expand navBen">
@@ -30,7 +28,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                     <li><a class="dropdown-item" href="/dashboard/edit-profile">Edit profile</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/my-requests">My Requests</a></li>
+                    <li><a class="dropdown-item" href="/dashboard/my-requests">My requests</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><button type="click" class="dropdown-item" id="logout">Log out</button></li>
                 </ul>
@@ -40,36 +38,30 @@
 </nav>
 <div class="main">
     <div class="container">
-        <nav aria-label="breadcrumb">
+    <form id="requestForm" method="post">
+        <nav aria-label="breadcrumb" id="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Connect</a></li>
-                <li class="breadcrumb-item active" aria-current="page">list of requests</li>
+                <li class="breadcrumb-item active" aria-current="page">New Request</li>
             </ol>
         </nav>
-        <div class="container mt-3">
-            <div class="row">
-                <% for(let i=0;i<requests.length;i++) { %>
-            <div class="card mb-4" style="width: 18rem;">
-                <div class="col-auto mb-3">
-                <img class="card-img-top" src="/images/volunteer.png" aria-setsize="" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Requester name: <br><%=requests[i].name%></h5>
-                    <p class="mb-1">Date: <%=(requests[i].date).toLocaleDateString() +' '+ (requests[i].date).toLocaleTimeString()%></p>
-                    <p class="mb-1">Type of request: <%=requests[i].request_type%></p>
-                    <p class="mb-1">Description: <%=requests[i].description%></p>
-                    <p class="mb-1">Status: <%=requests[i].status%></p>
-                    <button type="button" class="btn btn-dark" data-toggle="button" aria-pressed="false"
-                            autocomplete="off" value="<%=requests[i]._id%>">
-                        Sign me up!
-                    </button>
-            </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" placeholder="123 Parkview place, apt 1. 93010">
         </div>
-            </div>
-            <% } %>
+        <div class="mb-3">
+            <label for="requestType" class="form-label">Request type</label>
+            <input type="text" class="form-control" id="type" placeholder="TV installation" required>
         </div>
+        <div class="mb-3">
+            <label for="requestTextarea" class="form-label">Description</label>
+            <textarea class="form-control" id="desc" rows="3" required></textarea>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Send Request</button>
+        </div>
+    </form>
     </div>
-</div>
 </div>
 <nav class="py-3 navbar-expand-lg navbar-light bg-light fixed-bottom">
     <div class="text-center Community" id="communityInc">
@@ -87,6 +79,6 @@
         </a>
     </div>
 </nav>
-<script src="/list/list.scripts.js"></script>
+<script src="/request/request.scripts.js"></script>
 </body>
 </html>

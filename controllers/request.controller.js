@@ -4,6 +4,8 @@ const {
     deleteRequest,
     postRequest,
     updateRequest,
+    getRequestsToNotify,
+    updateNotified
 } = require("../DAL/request.DAL");
 
 const { httpError } = require('../classes/httpError.class');
@@ -72,6 +74,39 @@ exports.changeRequest = async (req, res, next) => {
         next(error)
     }
 };
+
+exports.toNotify = async (req, res, next) => {
+    try {
+        const requests = await getRequestsToNotify(req, res);
+        if (!requests) {
+            res.status(200).json({message: 'not found'});
+        }
+        res.status(200).json({message: 'found',
+            requests: {
+                requests
+            },
+        });
+    } catch (error) {
+        res.status(200).json({message: 'not found'});
+    }
+};
+
+exports.updateMany = async (req, res, next) => {
+    try {
+        const requests = await updateNotified(req, res);
+        if (!requests) {
+            res.status(200).json({message: 'not Updated'});
+        }
+        res.status(200).json({message: 'Updated',
+            requests: {
+                requests
+            },
+        });
+    } catch (error) {
+        res.status(200).json({message: 'not updated'});
+    }
+};
+
 
 
 

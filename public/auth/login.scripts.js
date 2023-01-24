@@ -11,18 +11,22 @@ loginForm.addEventListener("submit", async (e) => {
     try {
         if (userInfo.email && userInfo.password) {
             const data = await login(userInfo);
+
             if(data.message === 'success') {
-                console.log(data.jwtToken);
                 window.location.replace("/dashboard/list");
+
+            } else if (data.message === 'Must be valid Email') {
+                await swal("Oops!", "Invalid Email", "error");
             }
-            else {
-                alert(data.message)
+            else if (data.message === 'Wrong password'){
+                await swal("Oops!", "Wrong password, try again!", "error");
             }
-        } else {
-            alert("invalid email or password");
+            else if (data.status !== 200 ){
+                await swal("Oops!",  `${data.message}`, "error");
+            }
         }
     } catch (error) {
-
+        await swal("Oops!", `${error.message}`, "error");
     }
 });
 

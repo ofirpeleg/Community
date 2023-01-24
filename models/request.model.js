@@ -33,6 +33,10 @@ const requestSchema = new Schema({
     },
     name: {
         type: String,
+    },
+    notify: {
+        type: String,
+        default: 'none'
     }
 });
 

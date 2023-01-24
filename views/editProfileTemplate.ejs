@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-            crossorigin="anonymous"></script>
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
-    <link rel="stylesheet" href="/list/list.style.css">
-    <title>List</title>
+    <link rel="stylesheet" href="/profile/editProfile.style.css">
+    <title>Edit</title>
 </head>
 <body>
 <nav class="navbar navbar-expand navBen">
@@ -29,8 +26,8 @@
                 <a class="nav-link dropdown-toggle fw-bold"  id="noText" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                    <li><a class="dropdown-item" href="/dashboard/edit-profile">Edit profile</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/my-requests">My Requests</a></li>
+                    <li><a class="dropdown-item" href="#">Edit profile</a></li>
+                    <li><a class="dropdown-item" href="/dashboard/my-requests">My requests</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><button type="click" class="dropdown-item" id="logout">Log out</button></li>
                 </ul>
@@ -40,35 +37,38 @@
 </nav>
 <div class="main">
     <div class="container">
-        <nav aria-label="breadcrumb">
+    <form id="editForm" method="post">
+        <nav aria-label="breadcrumb" class="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Connect</a></li>
-                <li class="breadcrumb-item active" aria-current="page">list of requests</li>
+                <li class="breadcrumb-item active" aria-current="page">Edit profile</li>
             </ol>
         </nav>
-        <div class="container mt-3">
-            <div class="row">
-                <% for(let i=0;i<requests.length;i++) { %>
-            <div class="card mb-4" style="width: 18rem;">
-                <div class="col-auto mb-3">
-                <img class="card-img-top" src="/images/volunteer.png" aria-setsize="" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Requester name: <br><%=requests[i].name%></h5>
-                    <p class="mb-1">Date: <%=(requests[i].date).toLocaleDateString() +' '+ (requests[i].date).toLocaleTimeString()%></p>
-                    <p class="mb-1">Type of request: <%=requests[i].request_type%></p>
-                    <p class="mb-1">Description: <%=requests[i].description%></p>
-                    <p class="mb-1">Status: <%=requests[i].status%></p>
-                    <button type="button" class="btn btn-dark" data-toggle="button" aria-pressed="false"
-                            autocomplete="off" value="<%=requests[i]._id%>">
-                        Sign me up!
-                    </button>
-            </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="<%= user.full_name%>">
         </div>
-            </div>
-            <% } %>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" id="email" placeholder="<%=user.email%>">
         </div>
-    </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" placeholder="<%=user.address%>">
+        </div>
+        <div class="mb-3">
+            <label for="skills" class="form-label">Skills</label>
+            <input type="text" class="form-control" id="skills" placeholder="<%=user.skills%>">
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone number</label>
+            <input type="text" class="form-control" id="phone" placeholder="<%=user.phone_number%>">
+        </div>
+        <div class="col-12">
+            <button type="click" class="btn btn-primary" id="btn" value="<%=user._id%>">Edit</button>
+            <button type="button" class="btn btn-primary" id="btnCancel">Cancel</button>
+        </div>
+    </form>
 </div>
 </div>
 <nav class="py-3 navbar-expand-lg navbar-light bg-light fixed-bottom">
@@ -87,6 +87,6 @@
         </a>
     </div>
 </nav>
-<script src="/list/list.scripts.js"></script>
+<script src="/profile/editProfile.script.js"></script>
 </body>
 </html>
