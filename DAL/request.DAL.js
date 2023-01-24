@@ -1,11 +1,11 @@
-const Request = require("../models/request.models");
-const User = require("../models/user.models");
+const Request = require("../models/request.model");
+const User = require("../models/user.model");
 const { httpError } = require('../classes/httpError.class');
 
 //add new request
 const postRequest = async (req,res) => {
     const requesterId = req.userid._id;
-    const user = await User.findOne({_id: requesterId});
+    const user = User.findOne({_id: requesterId});
     const userName = user.full_name;
     //add details from cookie to req.body
     req.body.name = userName;
@@ -27,9 +27,8 @@ const getRequests = async (req, res) => {
 };
 
 //get request by id
-const getRequest = async (req,res) => {
-    const id = req.params.id;
-    const foundRequest = await Request.findOne({ _id: id})
+const getRequest = async (req,res,id) => {
+    const foundRequest = await Request.findOne({ _id: id});
     if (!foundRequest) throw new httpError("Not exists" , 404);
     return foundRequest;
 };
@@ -48,32 +47,41 @@ const updateRequest = async (req,res) => {
     if(JSON.stringify(req.body) === '{}') {
         const details = {
             assignTo: req.userid._id,
-            status: 'active'
+            status: 'active',
+            notify: 'yes'
         };
-        const updatedRequest = await Request.findByIdAndUpdate({_id: id}, details);
+        const updatedRequest = Request.findByIdAndUpdate({_id: id}, details);
         if (!updatedRequest) throw new httpError("not Updated" , 400);
         return updatedRequest;
     }
+    // else - regular edit
     else {
-        const updatedRequest = await Request.findByIdAndUpdate({_id: id}, req.body);
+        const updatedRequest = Request.findByIdAndUpdate({_id: id}, req.body);
         if (!updatedRequest) throw new httpError("not Updated" , 400);
         return updatedRequest;
     }
 };
 
-/*
-const assignRequest = async (req,res) => {
-    const id = req.params.id;
-    const details = {
-        assignTo: req.userid._id,
-        status: 'active'
-    }
-    const updatedRequest = await Request.findByIdAndUpdate({_id: id}, { assignTo: req.userid._id,
-        status: 'active'});
-    if (!updatedRequest) throw new httpError("not Updated" , 400);
-    return updatedRequest;
+const getRequestByUserId = async (req,res) => {
+    const request = Request.findOne({ requester_id: req.userid._id});
+    if (!request) throw new httpError("not Found" , 400);
+    return request;
 };
-*/
+
+const getRequestsToNotify = async (req,res) => {
+    const requests = Request.find({ requester_id: req.userid._id , notify: 'yes'});
+    if (!requests) throw new httpError("no requests to notify" , 400);
+    return requests;
+};
+
+const updateNotified = async (req,res) => {
+    const details = {
+        notify: 'no',
+    }
+    const requests = Request.updateMany({notify: 'yes'} , details);
+    if (!requests) throw new httpError("not updated" , 400);
+    return requests;
+};
 
 module.exports = {
     getRequests,
@@ -81,4 +89,7 @@ module.exports = {
     postRequest,
     deleteRequest,
     updateRequest,
+    getRequestByUserId,
+    getRequestsToNotify,
+    updateNotified
 };

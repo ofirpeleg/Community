@@ -1,0 +1,84 @@
+
+main{
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+.navBen {
+    background: rgb(88,109,215);
+    background: radial-gradient(circle, rgba(88,109,215,1) 0%, rgba(207,246,255,0.30033263305322133) 100%);
+
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button{
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.btnn {
+    width:230px;
+    height:80px;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.row {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+}
+.Home {
+    margin-right: 10%;
+    margin-left: 10% ;
+}
+
+a.Home{
+    text-decoration: none;
+}
+
+#communityInc{
+    font-family: "Academy Engraved LET";
+}
+
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 50px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: rgb(88,109,215);
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid rgb(88,109,215);
+}
+

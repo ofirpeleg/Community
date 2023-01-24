@@ -6,6 +6,7 @@ const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
 const ejs = require('ejs');
+
 const cookieParser = require('cookie-parser');
 const connectDB = require("./config/db.connection");
 
@@ -15,9 +16,8 @@ const { authRouter }  = require('./routers/auth.router');
 const { uiRouter } = require('./routers/ui.roter');
 
 const errorHandler  = require('./middleware/errorHandler.mw');
-const verifyToken = require('./validations/token.validation');
 const { morgan } = require("./middleware/accessLogger.mw");
-const {tokenVerify} = require("./validations/token.validation");
+const { tokenVerify } = require("./validations/token.validation");
 const logPath = path.join(__dirname, "/log" ,"access.log");
 
 // Middlewares //
@@ -44,8 +44,8 @@ app.use(
 
 
 app.use("/auth", authRouter)
-app.use("/request", tokenVerify ,requestRouter);
-app.use("/user", userRouter);
+app.use("/request",tokenVerify ,requestRouter);
+app.use("/user",tokenVerify ,userRouter);
 app.use("/dashboard", tokenVerify ,uiRouter);
 
 app.all('/', (req, res) => {

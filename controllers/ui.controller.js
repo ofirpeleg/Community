@@ -1,9 +1,7 @@
 const {
     getRequests,
+    getRequestByUserId,
     getRequest,
-    deleteRequest,
-    postRequest,
-    updateRequest,
 } = require("../DAL/request.DAL");
 
 const {
@@ -16,7 +14,21 @@ exports.editProfile = async (req, res, next) => {
     try {
         const user = await getUserById(req, res);
         if (user) {
-            res.render('editUserTemplate.ejs', { user: user })
+            res.render('editProfileTemplate.ejs', { user: user })
+        }
+    } catch (error) {
+        next(error)
+    }
+};
+
+
+exports.editRequest = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const request = await getRequest(req, res , id);
+        const user = await getUserById(req, res);
+        if (request && user) {
+            res.render('editRequestTemplate.ejs', { request: request , user: user })
         }
     } catch (error) {
         next(error)
@@ -30,15 +42,46 @@ exports.getRequestsList = async (req, res, next) => {
             throw httpError(400,'not found');
         }
         const requests = await getRequests(req, res);
-        //show only pending request --> waiting for connection
-        const filteredRequests = requests.filter(request => request.status ==='pending');
         if (requests) {
+            //show only pending request --> waiting for connection
+            const filteredRequests = requests.filter(request => request.status ==='pending'
+                && request.requester_id !== req.userid._id
+            );
             res.render('listTemplate-cards.ejs', { requests: filteredRequests , user: user});
         }
     } catch (error) {
         next(error)
     }
 };
+
+exports.addNewRequest = async (req, res, next) => {
+    try {
+        const user = await getUserById(req, res);
+        if (user) {
+            res.render('newRequestTemplate.ejs', { user: user })
+        }
+    } catch (error) {
+        next(error)
+    }
+};
+
+exports.myRequestsList = async (req, res, next) => {
+    try {
+        const userId = req.userid._id;
+        const requests = await getRequests(req, res);
+        const user = await getUserById(req, res);
+        if (requests && user) {
+            const filteredRequests = requests.filter(request => request.requester_id === userId &&
+            request.status !== 'closed');
+            res.render('myRequestsTemplate.ejs', {requests: filteredRequests , user: user})
+        }
+    } catch (error) {
+        next(error);
+    }
+};
+
+
+
 
 
 
