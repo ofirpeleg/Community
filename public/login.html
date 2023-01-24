@@ -6,57 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="auth/auth.style.css">
     <title>Sign in</title>
 </head>
 
 <body>
     <div class="formbold-main-wrapper">
-        <div class="formbold-form-wrapper">
-                    <div class="formbold-form-title">
-                        <a href="/images/logo1.png" id="logo"></a>
-                            <h2 id="Login">Log In</h2>
-                         </div>
-                        <form action="/request" method="POST" id="loginForm">
-                            <div class="formbold-mb-3">
-                                <!--<label for="email" class="formbold-form-label"> Email </label> -->
-                                <input type="email" name="email" id="email" class="formbold-form-input" required placeholder="Email"/>
-                            </div>
+        <div class="formbold-form-wrapper" style="border:1px solid lightgray;">
+            <div class="text-center">
+                <div class="formbold-form-title">
+                    <h2 style="color:black">Welcome</h2>
+                </div>
+                <a class="navbar-brand" href="#">
+                    <img class="text-center" src="./images/Logo.png" alt="Logo" style="width:120px;">
+                </a>
+            </div>
+            <form action="/request" method="POST" id="loginForm">
+                <div class="formbold-mb-3" style="margin-top: 50px;margin-bottom: 50px;">
+                    <label for="email" class="formbold-form-label"> Email </label>
+                    <input type="email" name="email" id="email" class="formbold-form-input" required placeholder="Email"/>
+                </div>
+                <div class="formbold-mb-3"style="margin-bottom: 50px;">
+                    <label for="password" class="formbold-form-label"> Password </label>
+                    <input type="password" name="password" id="password" class="formbold-form-input" placeholder="Password" required/>
+                </div>
 
-                            <div class="formbold-mb-3">
-                                <!-- <label for="password" class="formbold-form-label"> Password </label> -->
-                                <input type="password" name="password" id="password" class="formbold-form-input" placeholder="Password" required/>
-                            </div>
-
-                            <div class="formbold-checkbox-wrapper">
-                                <label for="supportCheckbox" class="formbold-checkbox-label">
-                                    <div class="formbold-relative">
-                                        <input type="checkbox" id="supportCheckbox" class="formbold-input-checkbox" />
-                                        <div class="formbold-checkbox-inner">
-                                            <span class="formbold-opacity-0">
-                                                <svg width="11" height="8" viewBox="0 0 11 8" fill="none"
-                                                    class="formbold-stroke-current">
-                                                    <path
-                                                        d="M10.0915 0.951972L10.0867 0.946075L10.0813 0.940568C9.90076 0.753564 9.61034 0.753146 9.42927 0.939309L4.16201 6.22962L1.58507 3.63469C1.40401 3.44841 1.11351 3.44879 0.932892 3.63584C0.755703 3.81933 0.755703 4.10875 0.932892 4.29224L0.932878 4.29225L0.934851 4.29424L3.58046 6.95832C3.73676 7.11955 3.94983 7.2 4.1473 7.2C4.36196 7.2 4.55963 7.11773 4.71406 6.9584L10.0468 1.60234C10.2436 1.4199 10.2421 1.1339 10.0915 0.951972ZM4.2327 6.30081L4.2317 6.2998C4.23206 6.30015 4.23237 6.30049 4.23269 6.30082L4.2327 6.30081Z" -->
-                                                        stroke-width="0.4">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        Remember me
-                                    </div>
-                                </label>
-                            </div>
-
-                            <button class="formbold-btn">Log in</button>
-
-                            <div class="account">
-                                New here?
-                                <a href="auth/new-account">Create an account</a>
-                            </div>
-                        </form>
+                <div class="text-center">
+                    <button class="up-btn btn btn-secondary btn-lg" style ="--bs-btn-border-color: white; width: 70%; height: 40%; border-radius: 30px; background: rgb(88,109,215);
+                           background: radial-gradient(circle, rgba(88,109,215,1) 0%, rgba(207,246,255,0.30033263305322133) 100%);">Log in</button>
+                    <div class="account">
+                        New here?
+                        <a href="auth/new-account">Create an account</a>
+                    </div>
+                </div>
+            </form>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,8 @@ body {
 }
 
 .formbold-mb-3 {
-    margin-bottom: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .formbold-relative {
@@ -51,7 +52,6 @@ body {
     font-weight: 600;
     font-size: 28px;
     line-height: 34px;
-    margin-right: 50px;
     color: #07074d;
 }
 
@@ -59,7 +59,7 @@ body {
     font-size: 16px;
     line-height: 24px;
     color: #536387;
-    margin-top: 12px;
+    /* margin-top: 12px; */
 }
 
 .formbold-input-flex {
@@ -73,6 +73,7 @@ body {
 }
 
 .formbold-form-input {
+    margin-top: -5px;
     width: 100%;
     padding: 13px 22px;
     background: #ffffff;
@@ -81,7 +82,8 @@ body {
     color: #536387;
     outline: none;
     resize: none;
-    border-color: #eeeeee;
+    border-bottom-width: 1px;
+    border-color:  #eeeeee;
     border-top-style: hidden;
     border-right-style: hidden;
     border-left-style: hidden;
@@ -90,7 +92,7 @@ body {
 
 .formbold-form-input:focus {
     border-color: #536387;
-    box-shadow: 3px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
 }
 
 .formbold-form-label {
@@ -98,7 +100,7 @@ body {
     font-size: 14px;
     line-height: 24px;
     display: block;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .formbold-checkbox-label {
@@ -140,6 +142,8 @@ body {
 }
 
 .formbold-btn {
+    width: 70%;
+    height: 100%;
     font-size: 16px;
     border-radius: 5px;
     padding: 14px 25px;
@@ -152,21 +156,9 @@ body {
 }
 
 .formbold-btn:hover {
-    box-shadow: 3px 8px rgba(69, 67, 103, 0.466);
+    box-shadow: 0px 3px 8px rgba(69, 67, 103, 0.466);
 }
 
 .account {
     margin-top: 25px;
 }
-
-::placeholder {
-    color: lightgray;
-    opacity: 2;
-}
-
-
-.formbold-checkbox-wrapper {
-    margin-top: 35px;
-}
-
-
