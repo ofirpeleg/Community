@@ -68,13 +68,13 @@ a.Home{
     #breadcrumb {
         display: block;
     }
-    a#fullText {
+    #communityInc {
         display: block;
     }
-    a#noText {
+    #shortDropDown {
         display: none;
     }
-    #communityInc {
+    #longDropDown {
         display: block;
     }
 }
@@ -86,18 +86,19 @@ a.Home{
     ol.breadcrumb {
         display: none;
     }
-    a#fullText {
-        display: none;
-    }
-    a#noText {
-        display: block;
-    }
     #communityInc {
         display: none;
     }
-
     #editForm {
-        margin-top: 30px ;
+        margin-top: 30px;
+    }
+    #shortDropDown {
+        display: block;
+    }
+    #longDropDown {
+        display: none;
+    }
+    #myRequests {
+        display: none;
     }
 }
-

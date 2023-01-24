@@ -14,20 +14,20 @@
 <body>
 <nav class="navbar navbar-expand navBen">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/dashboard/">
             <img src="/images/logo.png" alt="Logo" style="width:80px;">
             <img src="/images/community.png" alt="Logo" style="width:160px;">
         </a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item dropdown" style="position:absolute; right:40px; top:20px;">
-                <a class="nav-link dropdown-toggle fw-bold"  id="fullText" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle fw-bold" href="#" id="longDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Hi, <%=user.full_name%>
                 </a>
-                <a class="nav-link dropdown-toggle fw-bold"  id="noText" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle fw-bold" href="#" id="shortDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                    <li><a class="dropdown-item" href="/dashboard/edit-profile">Edit profile</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/my-requests">My requests</a></li>
+                    <li><a class="dropdown-item" href="/dashboard/edit-profile" id="editProfile">Edit profile</a></li>
+                    <li><a class="dropdown-item" href="/dashboard/my-requests" id="myRequests">My requests</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><button type="click" class="dropdown-item" id="logout">Log out</button></li>
                 </ul>

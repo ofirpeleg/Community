@@ -47,13 +47,13 @@ a.Home{
     #breadcrumb {
         display: block;
     }
-    a#fullText {
+    #communityInc {
         display: block;
     }
-    a#noText {
+    #shortDropDown {
         display: none;
     }
-    #communityInc {
+    #longDropDown {
         display: block;
     }
 }
@@ -65,14 +65,22 @@ a.Home{
     ol.breadcrumb {
         display: none;
     }
-    a#fullText {
-        display: none;
-    }
-    a#noText {
-        display: block;
-    }
     #communityInc {
         display: none;
     }
+    #shortDropDown {
+        display: block;
+    }
+    #longDropDown {
+        display: none;
+    }
+    #editProfile {
+        display: none;
+    }
+    #myRequests {
+        display: none;
+    }
 }
+
+
 

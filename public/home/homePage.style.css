@@ -1,25 +1,6 @@
-
-main {
+main{
     margin: 0 auto;
-    max-width: 600px;
     width: 100%;
-    background: white;
-}
-
-nav {
-    padding-bottom: 17px;
-}
-
-/*nav bar*/
-.navBen {
-    background: rgb(88,109,215);
-    background: radial-gradient(circle, rgba(88,109,215,1) 0%, rgba(207,246,255,0.30033263305322133) 100%);
-
-}
-
-.Home {
-    margin-right: 10%;
-    margin-left: 10% ;
 }
 
 a.Home{
@@ -30,37 +11,60 @@ a.Home{
     font-family: "Academy Engraved LET";
 }
 
-body {
-    font-family: 'lato', sans-serif;
-}
-
-
-.container {
+.up-content{
     margin: 0 auto;
-    margin-top: 70px;
+    margin-top: 80px;
+    /* max-width: auto; */
     width: 100%;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
     text-decoration: none;
 }
 
+.navBen {
+    background: rgb(88,109,215);
+    background: radial-gradient(circle, rgba(88,109,215,1) 0%, rgba(207,246,255,0.30033263305322133) 100%);
+}
+
+.Home {
+    margin-right: 10%;
+    margin-left: 10% ;
+}
+
+.up-btn {
+    /* margin-left: 4%; */
+    /* margin-right: 3%; */
+    margin-top: 3%;
+}
+
+.h4-center {
+    margin-top: 5%;
+    /* margin-left: 16%; */
+}
+
+.center-content {
+    margin-left: 16%;
+}
+
 .styled-table {
+    width: 81.5%;
     border-collapse: collapse;
-    margin: 50px 0;
+    margin-top :2.5%;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 400px;
+    /* min-width: 400px; */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .styled-table thead tr {
     background-color: rgb(88,109,215);
     color: #ffffff;
-    text-align: left;
+    text-align: center;
 }
 
 .styled-table th,
 .styled-table td {
     padding: 12px 15px;
+    text-align: center;
 }
 
 .styled-table tbody tr {
@@ -74,6 +78,7 @@ body {
 .styled-table tbody tr:last-of-type {
     border-bottom: 2px solid rgb(88,109,215);
 }
+
 
 @media only screen and (min-width: 992px) {
     #icons {
@@ -103,9 +108,6 @@ body {
     #communityInc {
         display: none;
     }
-    table.styled-table {
-        width: 200px;
-    }
     #shortDropDown {
         display: block;
     }
@@ -119,6 +121,4 @@ body {
         display: none;
     }
 }
-
-
 

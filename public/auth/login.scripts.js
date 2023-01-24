@@ -13,7 +13,7 @@ loginForm.addEventListener("submit", async (e) => {
             const data = await login(userInfo);
 
             if(data.message === 'success') {
-                window.location.replace("/dashboard/list");
+                window.location.replace("/dashboard/");
 
             } else if (data.message === 'Must be valid Email') {
                 await swal("Oops!", "Invalid Email", "error");

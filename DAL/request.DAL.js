@@ -5,10 +5,8 @@ const { httpError } = require('../classes/httpError.class');
 //add new request
 const postRequest = async (req,res) => {
     const requesterId = req.userid._id;
-    const user = User.findOne({_id: requesterId});
-    const userName = user.full_name;
-    //add details from cookie to req.body
-    req.body.name = userName;
+    const user = await User.findOne({_id: requesterId});
+    req.body.name = user.full_name;
     req.body.requester_id = requesterId;
     console.log(req.body);
     const request = new Request(req.body);
@@ -83,6 +81,13 @@ const updateNotified = async (req,res) => {
     return requests;
 };
 
+const getVolunteering = async (req,res) => {
+    const requests = Request.find({ assignTo: req.userid._id , status: 'active'});
+    if (!requests) throw new httpError("not found" , 400);
+    return requests;
+};
+
+
 module.exports = {
     getRequests,
     getRequest,
@@ -91,5 +96,6 @@ module.exports = {
     updateRequest,
     getRequestByUserId,
     getRequestsToNotify,
-    updateNotified
+    updateNotified,
+    getVolunteering
 };

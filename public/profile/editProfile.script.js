@@ -62,7 +62,7 @@ const update = async (editDetails, userId) => {
 };
 
 cancelBtn.addEventListener("click", async (e) => {
-    window.location.replace("/dashboard/list");
+    window.location.replace("/dashboard/");
 });
 
 

@@ -61,16 +61,17 @@ a.Home{
     #breadcrumb {
         display: block;
     }
-    a#fullText {
-        display: block;
-    }
-    a#noText {
-        display: none;
-    }
     #communityInc {
         display: block;
     }
+    #shortDropDown {
+        display: none;
+    }
+    #longDropDown {
+        display: block;
+    }
 }
+
 
 @media only screen and (max-width: 992px) {
     #icons {
@@ -79,13 +80,19 @@ a.Home{
     ol.breadcrumb {
         display: none;
     }
-    a#fullText {
+    #communityInc {
         display: none;
     }
-    a#noText {
+    #shortDropDown {
         display: block;
     }
-    #communityInc {
+    #longDropDown {
+        display: none;
+    }
+    #editProfile {
+        display: none;
+    }
+    #myRequests {
         display: none;
     }
 }

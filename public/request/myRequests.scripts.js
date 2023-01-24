@@ -18,6 +18,7 @@ const handleDelete = async (e) => {
         const data = await deleteRequest(deleteDetails, requestId);
         if (data) {
             await swal("Success", "The request has been deleted" , 'success');
+            window.location.reload();
         } else {
             await swal("Oops!", "Something went wrong, you should try again!", "error");
         }

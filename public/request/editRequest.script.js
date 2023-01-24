@@ -29,6 +29,7 @@ editRequestBtn.addEventListener("click", async (e) => {
             const data = await request(editDetails, requestId);
             if (data) {
                 await swal("Success", " Request details have been updated!" , 'success');
+                window.location.replace('/dashboard/my-requests');
             } else {
                 await swal("Oops!", "Something went wrong, you should try again!", "error");
             }
@@ -49,7 +50,7 @@ const request = async (requestDetails, requestId) => {
 };
 
 cancelBtn.addEventListener("click", async (e) => {
-    window.location.replace("/dashboard/list");
+    window.location.replace("/dashboard/my-requests");
 });
 
 

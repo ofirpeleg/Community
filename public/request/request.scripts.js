@@ -1,5 +1,6 @@
 const requestForm = document.getElementById("requestForm");
 const logoutBtn = document.getElementById('logout');
+const cancelBtn = document.getElementById('btnCancel');
 
 
 requestForm.addEventListener("submit", async (e) => {
@@ -13,7 +14,8 @@ requestForm.addEventListener("submit", async (e) => {
     try {
         const data = await request(requestDetails);
         if (data) {
-            await swal("Success", "Profile has been updated!" , 'success');
+            await swal("Success", "New request has been listed!" , 'success');
+            window.location.replace('/dashboard/my-requests');
         } else {
             await swal("Oops!", "Something went wrong, you should try again!", "error");
         }
@@ -41,4 +43,8 @@ logoutBtn.addEventListener("click",async (e) => {
     } catch (error) {
         console.log(error);
     }
+});
+
+cancelBtn.addEventListener("click", async (e) => {
+    window.location.replace("/dashboard/");
 });
