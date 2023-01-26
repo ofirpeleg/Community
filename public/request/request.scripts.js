@@ -2,9 +2,16 @@ const requestForm = document.getElementById("requestForm");
 const logoutBtn = document.getElementById('logout');
 const cancelBtn = document.getElementById('btnCancel');
 
+const ifEmptyFields = async () => {
+
+    if (requestForm.address.value.length === 0) {
+        requestForm.address.value = requestForm.address.placeholder;
+    };
+}
 
 requestForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+    await ifEmptyFields();
     const requestDetails = {
         address: requestForm.address.value,
         request_type: requestForm.type.value,
