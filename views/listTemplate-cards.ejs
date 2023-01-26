@@ -15,7 +15,7 @@
     <title>List</title>
 </head>
 <body>
-<nav class="navbar navbar-expand navBen">
+<nav class="navbar navbar-expand navBen fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="/dashboard/">
             <img src="/images/logo.png" alt="Logo" style="width:80px;">
@@ -31,6 +31,7 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                     <li><a class="dropdown-item" href="/dashboard/edit-profile" id="editProfile">Edit profile</a></li>
                     <li><a class="dropdown-item" href="/dashboard/my-requests" id="myRequests">My requests</a></li>
+                    <li><a class="dropdown-item" href="/dashboard/request" id="help">Ask for help</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><button type="click" class="dropdown-item" id="logout">Log out</button></li>
                 </ul>
@@ -39,7 +40,7 @@
     </div>
 </nav>
 <div class="main">
-    <div class="container">
+    <div class="container" style="margin-bottom: 50px; padding-top: 60px;">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -76,13 +77,13 @@
         © 2023 Community Inc.
     </div>
     <div class="text-center footer-icons" id="icons">
-        <a class="Home" href="#">
+        <a class="Home" href="/dashboard/">
             <img src="/images/home.png" style="width:30px;">
         </a>
-        <a class="Home" href="#">
+        <a class="Home" href="/dashboard/my-requests">
             <img src="/images/list.png" style="width:30px;">
         </a>
-        <a class="Home" href="#">
+        <a class="Home" href="/dashboard/edit-profile">
             <img src="/images/profile.png" style="width:30px;">
         </a>
     </div>

@@ -14,9 +14,7 @@ a.Home{
 .up-content{
     margin: 0 auto;
     margin-top: 80px;
-    /* max-width: auto; */
     width: 100%;
-    /* padding-bottom: 20px; */
     text-decoration: none;
 }
 
@@ -31,14 +29,11 @@ a.Home{
 }
 
 .up-btn {
-    /* margin-left: 4%; */
-    /* margin-right: 3%; */
     margin-top: 3%;
 }
 
 .h4-center {
     margin-top: 5%;
-    /* margin-left: 16%; */
 }
 
 .center-content {
@@ -51,7 +46,6 @@ a.Home{
     margin-top :2.5%;
     font-size: 0.9em;
     font-family: sans-serif;
-    /* min-width: 400px; */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -119,6 +113,12 @@ a.Home{
     }
     #myRequests {
         display: none;
+    }
+    #help {
+        display: none;
+    }
+    #volunteer , #request , #profile {
+        font-size: 13px;
     }
 }
 

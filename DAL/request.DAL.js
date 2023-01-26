@@ -8,7 +8,7 @@ const postRequest = async (req,res) => {
     const user = await User.findOne({_id: requesterId});
     req.body.name = user.full_name;
     req.body.requester_id = requesterId;
-    console.log(req.body);
+    req.body.phone_number = user.phone_number;
     const request = new Request(req.body);
         const newRequest = await request.save();
         if (!newRequest) throw new httpError("Unable to add new Request" , 400);

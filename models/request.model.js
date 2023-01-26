@@ -1,6 +1,7 @@
 const { model, Schema } = require("mongoose");
 
 const requestSchema = new Schema({
+
     requester_id: {
         type: String,
         required: true,
@@ -13,11 +14,11 @@ const requestSchema = new Schema({
         type: String,
         required: true,
     },
-    /*
-    requester_email: {
+
+    phone_number: {
         type: String,
     },
-     */
+
     date: {
         type: Date,
         required:true,
