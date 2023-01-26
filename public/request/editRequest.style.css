@@ -99,6 +99,9 @@ a.Home{
     #myRequests {
         display: none;
     }
+    #help {
+        display: none;
+    }
 
 }
 
