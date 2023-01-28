@@ -14,7 +14,8 @@ a.Home{
 .up-content{
     margin: 0 auto;
     margin-top: 80px;
-    width: 100%;
+    align-items: center;
+    width: 65%;
     text-decoration: none;
 }
 
@@ -117,7 +118,7 @@ a.Home{
     #help {
         display: none;
     }
-    #volunteer , #request , #profile {
+    #volunteer , #request , #profile , #phone {
         font-size: 13px;
     }
 }
