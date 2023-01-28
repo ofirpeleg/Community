@@ -43,6 +43,7 @@
         <button type="button" id="volunteer" class="up-btn btn btn-secondary btn-lg" style="height:70%; width: 20%;">Volunteer</button>
         <button type="button" id="request" class="up-btn btn btn-secondary btn-lg" style="height:70%; width: 20%; margin-left: 4%;">Help</button>
         <button type="button" id="profile" class="up-btn btn btn-secondary btn-lg" style="height:70%; width: 20%; margin-left: 4%;">Profile</button>
+        <button type="button" id="phone" class="up-btn btn btn-secondary btn-lg" style="height:70%; width: 20%; margin-left: 4%;">Telephone line</button>
     </div>
     <div class = "center-content">
         <h4 class="h4-center">My volunteering list</h4>
@@ -51,6 +52,7 @@
             <tr>
                 <th>Name</th>
                 <th>Type</th>
+                <th>Description</th>
                 <th>Phone-number</th>
                 <th>Mark as done</th>
             </tr>
@@ -60,6 +62,7 @@
             <tr>
                 <td><%=requests[i].name%></td>
                 <td><%=requests[i].request_type%></td>
+                <td><%=requests[i].description%></td>
                 <td><%=requests[i].phone_number%></td>
                 <td>
                     <input class="form-check-input" type="checkbox" value="<%=requests[i]._id%>" id="flexCheckChecked">
