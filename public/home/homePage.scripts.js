@@ -1,4 +1,4 @@
-const checkedBox = document.getElementById('flexCheckChecked');
+let checkedBox;
 const requestBtn = document.getElementById('request');
 const profileBtn = document.getElementById('profile');
 const volunteerBtn = document.getElementById('volunteer');
@@ -35,10 +35,19 @@ const updateMany = async () => {
     return updated.json();
 };
 
+const complete = async (requestDetails, requestId) => {
+    const response = await fetch(`http://localhost:4000/request/${requestId}`, {
+        method: "put",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestDetails),
+    })
+    return response.json();
+};
 
-if(checkedBox) {
-
-    checkedBox.addEventListener("click", async (e) => {
+const handleComplete = async (e) => {
+    if(checkedBox) {
         const button = e.target;
         const requestId = button.value;
         console.log(requestId);
@@ -56,19 +65,14 @@ if(checkedBox) {
         } catch (error) {
             await swal("Oops!", "Something went wrong, you try choose again!", "error");
         }
-    });
+    }
 };
 
-const complete = async (requestDetails, requestId) => {
-    const response = await fetch(`http://localhost:4000/request/${requestId}`, {
-        method: "put",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestDetails),
-    })
-    return response.json();
+checkedBox = document.getElementsByClassName('form-check-input');
+for(const element of checkedBox) {
+    element.addEventListener('click', handleComplete);
 };
+
 
 requestBtn.addEventListener("click", async (e) => {
     window.location.replace("/dashboard/request");
@@ -84,7 +88,6 @@ profileBtn.addEventListener("click", async (e) => {
 
 logoutBtn.addEventListener("click",async (e) => {
     try {
-
         console.log('logging out');
         await fetch('http://localhost:4000/auth/logout');
         window.location.replace("/");
