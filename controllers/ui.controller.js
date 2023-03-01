@@ -74,6 +74,7 @@ exports.myRequestsList = async (req, res, next) => {
         if (requests && user) {
             const filteredRequests = requests.filter(request => request.requester_id === userId &&
             request.status !== 'closed');
+            console.log(filteredRequests);
 
             res.render('myRequestsTemplate.ejs', {requests: filteredRequests , user: user})
         }
