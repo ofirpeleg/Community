@@ -1,5 +1,5 @@
 //users scheme from DB
-const User = require("../models/user.models");
+const User = require("../models/user.model");
 //bcrypt for password
 const bcrypt = require('bcrypt');
 //http error class
@@ -7,8 +7,8 @@ const { httpError } = require('../classes/httpError.class');
 
 //get user by id
 const getUserById= async (req, res) => {
-    const id = req.params.id;
-    const foundUser = await User.findOne({ _id: id });
+    const userId = req.userid._id;
+    const foundUser = await User.findOne({ _id: userId });
     if (!foundUser) throw new httpError("Not exist" , 404);
     return foundUser;
 };
@@ -62,7 +62,6 @@ const deleteUser = async (req, res) => {
 
 const postUser = async (user) => {
     const userObj = new User({ ...user });
-    console.log(userObj.email);
     const foundUser = await User.findOne({'email': userObj.email});
     if(foundUser) throw new httpError("Email already exists" , 404);
     else {

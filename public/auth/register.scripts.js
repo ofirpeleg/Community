@@ -16,13 +16,13 @@ registerForm.addEventListener("submit", async (e) => {
     try {
             const data = await register(userInfo);
             if(data.message === 'success') {
-                alert(`welcome ${data.user.addedUser.full_name}!`);
+                await swal("Success",`${data.user.addedUser.full_name}, welcome to our community!` , 'success');
             }
             else {
-                alert(data.message)
+                await swal("Oops!", `${data.message} , Please try again!` , "error");
             }
     } catch (error) {
-
+        await swal("Oops!", 'Something went wrong.. Please try again!' , "error");
     }
 });
 

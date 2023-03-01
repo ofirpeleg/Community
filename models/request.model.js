@@ -1,6 +1,7 @@
 const { model, Schema } = require("mongoose");
 
 const requestSchema = new Schema({
+
     requester_id: {
         type: String,
         required: true,
@@ -9,18 +10,34 @@ const requestSchema = new Schema({
         type: String,
         required: true,
     },
-    notes: {
+    description: {
         type: String,
         required: true,
     },
-    requester_email: {
+
+    phone_number: {
         type: String,
-        required: true,
     },
+
     date: {
         type: Date,
         required:true,
         default: new Date()
+    },
+    assignTo: {
+        type: String,
+        default: 'none'
+    },
+    status: {
+        type: String,
+        default: 'pending'
+    },
+    name: {
+        type: String,
+    },
+    notify: {
+        type: String,
+        default: 'none'
     }
 });
 

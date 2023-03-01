@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="/list/list.style.css">
+    <title>List</title>
+</head>
+<body>
+<nav class="navbar navbar-expand navBen fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/dashboard/">
+            <img src="/images/logo.png" alt="Logo" style="width:80px;">
+            <img src="/images/community.png" alt="Logo" style="width:160px;">
+        </a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown" style="position:absolute; right:40px; top:20px;">
+                <a class="nav-link dropdown-toggle fw-bold"  id="longDropDown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Hi, <%=user.full_name%>
+                </a>
+                <a class="nav-link dropdown-toggle fw-bold" href="#" id="shortDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                    <li><a class="dropdown-item" href="/dashboard/edit-profile" id="editProfile">Edit profile</a></li>
+                    <li><a class="dropdown-item" href="/dashboard/my-requests" id="myRequests">My requests</a></li>
+                    <li><a class="dropdown-item" href="/dashboard/request" id="help">Ask for help</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><button type="click" class="dropdown-item" id="logout">Log out</button></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="main">
+    <div class="container" style="margin-bottom: 50px; padding-top: 60px;">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/dashboard/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">list of requests</li>
+            </ol>
+        </nav>
+        <div class="container mt-3">
+            <div class="row">
+                <% for(let i=0;i<requests.length;i++) { %>
+            <div class="card mb-4" style="width: 18rem;">
+                <div class="col-auto mb-3">
+                <img class="card-img-top" src="/images/volunteer.png" aria-setsize="" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Requester name: <br><%=requests[i].name%></h5>
+                    <p class="mb-1">Date: <%=(requests[i].date).toLocaleDateString() +' '+ (requests[i].date).toLocaleTimeString()%></p>
+                    <p class="mb-1">Type of request: <%=requests[i].request_type%></p>
+                    <p class="mb-1">Description: <%=requests[i].description%></p>
+                    <p class="mb-1">Status: <%=requests[i].status%></p>
+                    <button type="button" class="btn btn-dark" data-toggle="button" aria-pressed="false"
+                            autocomplete="off" value="<%=requests[i]._id%>">
+                        Sign me up!
+                    </button>
+            </div>
+        </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+</div>
+<nav class="py-3 navbar-expand-lg navbar-light bg-light fixed-bottom">
+    <div class="text-center Community" id="communityInc">
+        © 2023 Community Inc.
+    </div>
+    <div class="text-center footer-icons" id="icons">
+        <a class="Home" href="/dashboard/">
+            <img src="/images/home.png" style="width:30px;">
+        </a>
+        <a class="Home" href="/dashboard/my-requests">
+            <img src="/images/list.png" style="width:30px;">
+        </a>
+        <a class="Home" href="/dashboard/edit-profile">
+            <img src="/images/profile.png" style="width:30px;">
+        </a>
+    </div>
+</nav>
+<script src="/list/list.scripts.js"></script>
+</body>
+</html>

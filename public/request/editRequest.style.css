@@ -1,0 +1,108 @@
+main{
+    margin: 0 auto;
+    max-width: 600px;
+    width: 100%;
+    background: white;
+}
+
+form {
+    margin: 0 auto;
+    margin-top: 70px;
+    max-width: 570px;
+    width: 80%;
+    padding-bottom: 20px;
+    text-decoration: none;
+}
+
+.form-control {
+    width: 100%;
+    padding: 13px 22px;
+    background: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    color: #536387;
+    outline: none;
+    resize: none;
+    border-color: #eeeeee;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+}
+
+nav {
+    padding-bottom: 17px;
+}
+
+/*nav bar*/
+.navBen {
+    background: rgb(88,109,215);
+    background: radial-gradient(circle, rgba(88,109,215,1) 0%, rgba(207,246,255,0.30033263305322133) 100%);
+}
+
+.Home {
+    margin-right: 10%;
+    margin-left: 10% ;
+}
+
+a.Home{
+    text-decoration: none;
+}
+
+#communityInc{
+    font-family: "Academy Engraved LET";
+}
+
+@media only screen and (min-width: 992px) {
+    #icons {
+        display: none;
+    }
+    #breadcrumb {
+        display: block;
+    }
+    #communityInc {
+        display: block;
+    }
+    #shortDropDown {
+        display: none;
+    }
+    #longDropDown {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    #icons {
+        display: block;
+    }
+
+    ol.breadcrumb {
+        display: none;
+    }
+
+    #communityInc {
+        display: none;
+    }
+
+    #shortDropDown {
+        display: block;
+    }
+
+    #longDropDown {
+        display: none;
+    }
+
+    #editProfile {
+        display: none;
+    }
+
+    #myRequests {
+        display: none;
+    }
+    #help {
+        display: none;
+    }
+
+}
+
+

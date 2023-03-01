@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="/home/homePage.style.css">
+    <title>Home</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand navBen fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/images/logo.png" alt="Logo" style="width:80px;">
+            <img src="/images/community.png" alt="Logo" style="width:160px;">
+        </a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 Hey">
+            <li class="nav-item dropdown" style="position:absolute; right:40px; top:20px;">
+                <a class="nav-link dropdown-toggle fw-bold" href="#" id="longDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Hi, <%=user.full_name%>
+                </a>
+                <a class="nav-link dropdown-toggle fw-bold" href="#" id="shortDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                    <li><a class="dropdown-item" href="/dashboard/edit-profile" id="editProfile">Edit profile</a></li>
+                    <li><a class="dropdown-item" href="/dashboard/my-requests" id="myRequests">My requests</a></li>
+                    <li><a class="dropdown-item" href="/dashboard/request" id="help">Ask for help</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><button type="click" class="dropdown-item" id="logout">Log out</button></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="main">
+    <div class="up-content text-center" style="margin-bottom: 50px; padding-top: 30px;">
+        <button type="button" id="volunteer" class="up-btn btn btn-secondary btn-lg" style="height:70%; width: 20%;">Volunteer</button>
+        <button type="button" id="request" class="up-btn btn btn-secondary btn-lg" style="height:70%; width: 20%; margin-left: 4%;">Ask for Help</button>
+        <button type="button" id="profile" class="up-btn btn btn-secondary btn-lg" style="height:70%; width: 20%; margin-left: 4%;">Profile</button>
+        <button type="button" id="phone" class="up-btn btn btn-secondary btn-lg" style="height:70%; width: 20%; margin-left: 4%;">Telephone line</button>
+    </div>
+    <div class = "center-content">
+        <h4 class="h4-center">My volunteering list</h4>
+        <table class="styled-table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Phone-number</th>
+                <th>Mark as done</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for(let i=0;i<requests.length;i++) { %>
+            <tr>
+                <td><%=requests[i].name%></td>
+                <td><%=requests[i].request_type%></td>
+                <td><%=requests[i].description%></td>
+                <td><%=requests[i].phone_number%></td>
+                <td>
+                    <input class="form-check-input" type="checkbox" value="<%=requests[i]._id%>" id="flexCheckChecked">
+                </td>
+            </tr>
+            <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<nav class="py-3 navbar-expand-lg navbar-light bg-light fixed-bottom">
+    <div class="text-center Community" id="communityInc">
+        © 2023 Community Inc.
+    </div>
+    <div class="text-center footer-icons" id="icons">
+        <a class="Home" href="#">
+            <img src="/images/home.png" style="width:30px;">
+        </a>
+        <a class="Home" href="/dashboard/my-requests">
+            <img src="/images/list.png" style="width:30px;">
+        </a>
+        <a class="Home" href="/dashboard/edit-profile">
+            <img src="/images/profile.png" style="width:30px;">
+        </a>
+    </div>
+</nav>
+
+<script src="/home/homePage.scripts.js"></script>
+
+</body>
+</html>

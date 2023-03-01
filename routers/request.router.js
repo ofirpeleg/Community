@@ -3,13 +3,17 @@ const requestRouter = new Router();
 const {
     addRequest,
     getRequestById,
-    getRequestsList,
+    getRequests,
     removeRequest,
-    changeRequest
+    changeRequest,
+    toNotify,
+    updateMany
 } = require("../controllers/request.controller");
 
+requestRouter.get("/notify", toNotify);
+
 //get all requests
-requestRouter.get("/", getRequestsList);
+requestRouter.get("/", getRequests);
 
 //get request by id
 requestRouter.get("/:id", getRequestById);
@@ -21,6 +25,9 @@ requestRouter.delete("/:id", removeRequest);
 requestRouter.post("/", addRequest);
 
 //change request
-requestRouter.put("/:id", changeRequest)
+requestRouter.put("/update-many", updateMany);
+
+//change request
+requestRouter.put("/:id", changeRequest);
 
 module.exports = { requestRouter };

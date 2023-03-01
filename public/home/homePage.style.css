@@ -1,0 +1,125 @@
+main{
+    margin: 0 auto;
+    width: 100%;
+}
+
+a.Home{
+    text-decoration: none;
+}
+
+#communityInc{
+    font-family: "Academy Engraved LET";
+}
+
+.up-content{
+    margin: 0 auto;
+    margin-top: 80px;
+    align-items: center;
+    width: 65%;
+    text-decoration: none;
+}
+
+.navBen {
+    background: rgb(88,109,215);
+    background: radial-gradient(circle, rgba(88,109,215,1) 0%, rgba(207,246,255,0.30033263305322133) 100%);
+}
+
+.Home {
+    margin-right: 10%;
+    margin-left: 10% ;
+}
+
+.up-btn {
+    margin-top: 3%;
+}
+
+.h4-center {
+    margin-top: 5%;
+}
+
+.center-content {
+    margin-left: 16%;
+}
+
+.styled-table {
+    width: 81.5%;
+    border-collapse: collapse;
+    margin-top :2.5%;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: rgb(88,109,215);
+    color: #ffffff;
+    text-align: center;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid rgb(88,109,215);
+}
+
+
+@media only screen and (min-width: 992px) {
+    #icons {
+        display: none;
+    }
+    #breadcrumb {
+        display: block;
+    }
+    #communityInc {
+        display: block;
+    }
+    #shortDropDown {
+        display: none;
+    }
+    #longDropDown {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    #icons {
+        display: block;
+    }
+    ol.breadcrumb {
+        display: none;
+    }
+    #communityInc {
+        display: none;
+    }
+    #shortDropDown {
+        display: block;
+    }
+    #longDropDown {
+        display: none;
+    }
+    #editProfile {
+        display: none;
+    }
+    #myRequests {
+        display: none;
+    }
+    #help {
+        display: none;
+    }
+    #volunteer , #request , #profile , #phone {
+        font-size: 13px;
+    }
+}
+

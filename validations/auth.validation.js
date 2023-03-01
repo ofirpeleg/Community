@@ -12,7 +12,6 @@ const loginValidation = data => {
 
 const registerValidation = data => {
     const schema = Joi.object({
-
         full_name: Joi.string()
             .required(),
         address: Joi.string()
@@ -21,12 +20,32 @@ const registerValidation = data => {
             .required()
             .email(),
         password:Joi.string()
-            .required(),
+            .required()
+            .min(4),
         skills:Joi.string()
             .required(),
         phone_number:Joi.string()
-            .required(),
+            .required()
+            .length(10)
+            .pattern(/^[0-9]+$/),
+    });
 
+    const validation = schema.validate(data);
+    return validation;
+};
+
+const editProfileValidation = data => {
+    const schema = Joi.object({
+        full_name: Joi.string(),
+        email: Joi.string()
+            .required()
+            .email()
+            .pattern(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/),
+        address: Joi.string(),
+        skills:Joi.string(),
+        phone_number:Joi.string()
+            .length(10)
+            .pattern(/^[0-9]+$/),
     });
 
     const validation = schema.validate(data);
@@ -34,5 +53,7 @@ const registerValidation = data => {
 };
 
 
+
 module.exports.loginValidation = loginValidation;
 module.exports.registerValidation = registerValidation;
+module.exports.editProfileValidation = editProfileValidation;

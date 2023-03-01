@@ -22,13 +22,12 @@ const handleLogin = async (req, res, next) => {
 
     const validationCheck  = await loginValidation(req.body);
     if (validationCheck.error) {
-        console.log(validationCheck.error)
         throw new httpError('Must be valid Email' , 400);
     }
 
             //no email or password
             const {email, password} = req.body;
-            if (!email || !password) throw new httpError('Bad request - Email and Password are required!' , 400);
+            if (!email || !password) throw new httpError('Email and Password are required!' , 400);
 
             //find user by email
             const foundUser = await getUserByEmail(req, res);
@@ -38,14 +37,17 @@ const handleLogin = async (req, res, next) => {
             const match = await bcrypt.compare(req.body.password, foundUser.password);
 
             //create and assign token
-            const token = jwt.sign({_id: foundUser._id}, process.env.ACCESS_TOKEN_SECRET , { expiresIn: '15m'});
+            const token = jwt.sign({_id: foundUser._id}, process.env.ACCESS_TOKEN_SECRET , { expiresIn: '30m'});
             if (match) {
-                res.status(200).header('auth-token', token).json({
+                res.status(200).cookie("token", token, {
+                    httpOnly: true,
+
+                }).json({
                     message: 'success',
                     user: {
                         foundUser
                     },
-                    "jwtToken": token
+                    "jwtToken": token,
                 })
             } else {
                 throw new httpError('Wrong password' , 400);
@@ -59,7 +61,7 @@ const handleRegister = async (req, res, next) => {
 
     try {
     const validationCheck = registerValidation(req.body);
-    if (validationCheck.error) throw new httpError('Must be valid Email' , 404);
+    if (validationCheck.error) throw new httpError(`${validationCheck.error.message}` , 404);
 
         //hash Password
         const hashPassword = await bcrypt.hash(req.body.password, 12);
@@ -82,4 +84,14 @@ const handleRegister = async (req, res, next) => {
         }
 };
 
-module.exports = { handleLogin , handleRegister };
+
+const handleLogout = async (req,res,next) => {
+    try {
+        res.clearCookie('token');
+        res.end();
+    } catch (error) {
+        next(error);
+    }
+};
+
+module.exports = { handleLogin , handleRegister , handleLogout };
