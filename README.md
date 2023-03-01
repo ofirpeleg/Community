@@ -25,7 +25,7 @@ type in url borwser: http://localhost:4000
 ```
 ### Other dependencies
 ```bash
-  create .env file - will pass by demand  
+  create .env file (will pass by demand)  
 ```
 
 ## Built with
