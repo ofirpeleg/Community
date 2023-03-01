@@ -8,7 +8,6 @@ const {
     getUserWithEmail,
     removeUser,
     changeUser,
-
 } = require("../controllers/user.controller");
 
 //get all requests
